@@ -1,0 +1,181 @@
+{
+  "recipes": [
+    {
+      "name": "BGA-L-IC-M01",
+      "product": "product00001",
+      "device": "Dicing7093",
+      "parameterConfig": [
+        {
+          "name": "Spindle RPM",
+          "info": "主轴转速",
+          "type": "number",
+          "range": [8000, 10000],
+          "enums": null
+        },
+        {
+          "name": "Blade height",
+          "info": "叶片高度",
+          "type": "number",
+          "range": [180, 220],
+          "enums": null
+        },
+        {
+          "name": "Dicing speed",
+          "info": "切割速度",
+          "type": "number",
+          "range": [280, 400],
+          "enums": null
+        }
+      ]
+    },
+    {
+      "name": "QFP-L-IC-M03",
+      "product": "product00001",
+      "device": "nuDicing7093mber",
+      "parameterConfig": [
+        {
+          "name": "Spindle RPM",
+          "info": "主轴转速",
+          "type": "number",
+          "range": [20000, 50000],
+          "enums": null
+        },
+        {
+          "name": "Blade height",
+          "info": "叶片高度",
+          "type": "number",
+          "range": [180, 220],
+          "enums": null
+        },
+        {
+          "name": "Dicing speed",
+          "info": "切割速度",
+          "type": "number",
+          "range": [300, 600],
+          "enums": null
+        }
+      ]
+    },
+    {
+      "name": "SOP-L-IC-M02",
+      "product": "product00002",
+      "device": "Dicing7093",
+      "parameterConfig": [
+        {
+          "name": "Spindle RPM",
+          "info": "主轴转速",
+          "type": "number",
+          "range": [12000, 18000],
+          "enums": null
+        },
+        {
+          "name": "Blade height",
+          "info": "叶片高度",
+          "type": "number",
+          "range": [40, 100],
+          "enums": null
+        },
+        {
+          "name": "Dicing speed",
+          "info": "切割速度",
+          "type": "number",
+          "range": [280, 400],
+          "enums": null
+        }
+      ]
+    }
+  ],
+
+  "devices": [
+    {
+      "code": "Dicing7093",
+      "name": "7090切割机",
+      "info": "7090切割机的描述",
+      "state": "await",
+      "recipe": "SOP-L-IC-M02",
+      "parameter": [
+        {
+          "name": "Spindle RPM",
+          "range": [12000, 18000],
+          "value": 15000
+        },
+        {
+          "name": "Blade height",
+          "range": [150, 300],
+          "value": 250
+        },
+        {
+          "name": "Dicing speed",
+          "range": [200, 400],
+          "value": 300
+        }
+      ]
+    }
+  ],
+
+  "products": [
+    {
+      "code": "product00001",
+      "name": "产品1",
+      "info": "产品1的描述",
+      "boms": ["partNo00001", "partNo00002", "partNo00003", "partNo00004"]
+    },
+    {
+      "code": "product00002",
+      "name": "产品2",
+      "info": "产品2的描述",
+      "boms": ["partNo00005", "partNo00006", "partNo00007", "partNo00008"]
+    }
+  ],
+
+  "lots": [
+    {
+      "no": "lotNo000001",
+      "product": "product00001",
+      "line": "Line-1",
+      "panlQty": 5000,
+      "inQt": 0,
+      "lossQty": 0,
+      "outQty": 0,
+      "recipe": "BGA-L-IC-M01",
+      "allpassed": true,
+      "pns": ["partNo00001", "partNo00002"]
+    },
+    {
+      "no": "lotNo000002",
+      "product": "product00001",
+      "line": "Line-1",
+      "panlQty": 5000,
+      "inQt": 200,
+      "lossQty": 14,
+      "outQty": 186,
+      "recipe": "BGA-L-IC-M01",
+      "allpassed": true,
+      "pns": ["partNo00001", "partNo00002"]
+    },
+    {
+      "no": "lotNo000003",
+      "product": "product00002",
+      "line": "Line-1",
+      "panlQty": 5000,
+      "inQt": 0,
+      "lossQty": 0,
+      "outQty": 0,
+      "recipe": "QFP-L-IC-M03",
+      "allpassed": true,
+      "pns": ["partNo00005", "partNo00006", "partNo00007", "partNo00008"]
+    },
+    {
+      "no": "lotNo000004",
+      "product": "product00002",
+      "line": "Line-1",
+      "panlQty": 8000,
+      "inQt": 0,
+      "lossQty": 0,
+      "outQty": 0,
+      "recipe": "QFP-L-IC-M03",
+      "allpassed": false,
+      "pns": ["partNo00005", "partNo00007", "partNo00008"]
+    }
+  ]
+}
